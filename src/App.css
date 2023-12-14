@@ -1,38 +1,173 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: 0.625em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: rgb(152,202,247);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+:root {
+  --btnColor: #5194f1;
+  --btnHoverColor: #1a69d9;
+  --mainGray: #ddd;
+  --mainWhite: #fff;
+  --mainRed: #b80000;
+  --mainGreen: #008d00;
+}
+
+/* App */
+.main-container {
+  width: 100%;
+  padding: 10px 50px;
+}
+
+h1 {
+  margin-left: 15px;
+  font-size: 2.6rem;
+}
+
+/* ExpenseForm */
+.form-center {
   display: flex;
-  flex-direction: column;
+}
+
+.form-group {
+  padding: 16px 12px;
+  flex: 1;
+}
+
+label {
+  display: block;
+  font-size: 1.6rem;
+}
+
+.form-control {
+  width: 100%;
+  height: 50px;
+  margin: 0 0 8px 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid var(--mainGray);
+  background-color: transparent;
+  font-size: 1.6rem;
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: #999;
+}
+
+/* ExpenseList */
+.list {
+  list-style: none;
+  padding: 0;
+  border: none;
+}
+
+.btn {
+  padding: 7px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--btnColor);
+  color: var(--mainWhite);
+  font-size: 1.6rem;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: all .15s ease-in-out;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.btn span {
+  margin-right: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn:hover {
+  background-color: var(--btnHoverColor);
+  filter: drop-shadow(8px 8px 8px rgba(0, 0, 0, .11));
+}
+
+/* ExpenseItem */
+.item {
+  line-height: 30px;
+  margin: 0 auto 15px;
+  padding: 10px 2%;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: var(--mainWhite);
+  display: flex;
+  justify-content: space-between;
+  transition: all .3s ease-in-out;
+}
+
+.item:hover {
+  width: 100%;
+  transform: scale(1.01);
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .11));
+}
+
+.info {
+  flex: 0 0 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.expense {
+  margin-right: 2rem;
+  font-size: 1.6rem;
+}
+
+.amount {
+  font-weight: 300;
+  font-size: 1.6rem;
+  padding: 1px 3px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.edit-btn, .clear-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.clear-btn {
+  color: var(--mainRed);
+}
+
+.edit-btn {
+  color: var(--mainGreen);
+}
+
+/* Alert */
+.alert {
+  position: fixed;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-align: center;
+  color: var(--mainWhite);
+  font-size: 1.6rem;
+}
+
+.alert-danger {
+  background: var(--mainRed);
+}
+
+.alert-success {
+  background: var(--mainGreen);
 }
